@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transition</title>
+    <style>
+        .box {
+            margin: 100px;
+            width: 100px;
+            height: 100px;
+            background-color: #000;
+            /* 1.property duration timing-function delay */
+            /* transition: width 2s linear 0.5s; */
+            
+            transition: transform 2s ease-in;
+            
+            /* 2.类似border属性的写法 可以拆分也可以写在一行 */
+            /* border: 1px solid orangered; */
+
+            /* border-width: 1px;
+            border-style: solid;
+            border-color: orangered; */
+
+             /* transition-property: all;
+             transition-duration: 1s;
+             transition-timing-function: linear;
+             transition-delay: 2s; */
+          
+             /* 3.各属性详解
+             1.transition-property (transition2.html)
+                  用来定义哪个属性要应用转换动画，只有1/3的CSS属性支持转换动画(https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties)
+                  缺省情况下，transition-property 的取值为 all，也就是说将对所有可能的属性应用转换动画。
+             2. transition-duration 
+                  是创建 transition 的唯一必选参数。它可以使用秒或毫秒来做时间单位，比如：2s 或 100ms。 
+             3. transition-timing-function  (transition3.html)
+                转换时变函数用来确定每个属性在转换过程中取值如何计算，速查：https://easings.net/cn
+                缺省情况下，转换过程是 缓动的（ease）：时变特征是在起点处加速，在终点处减速。
+                ==> 三次贝塞尔（cubic-bezier）
+                如果所有上述预定义的时变函数满足不了要求，我们还可以使用cubic bezier方法来自定义转换过程。
+                这个站点(https://cubic-bezier.com)提供简单的可视化工具来编写自定义的时变曲线。可以自动生成CSS代码
+             4. transition-delay
+                延迟开始动的时间
+
+            transition注意点：
+            1.display 不能和transition一起使用
+            2.transition后面尽量不要跟all --> 结合transform属性 可以写transform
+              如: transition: transform 1s ease-in-out;
+            3.常见闪动 我们可以perspective 和 backface-visibility
+            */
+        }
+        .box:hover {
+            /* width: 200px; */
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

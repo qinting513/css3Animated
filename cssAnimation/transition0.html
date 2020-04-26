@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>transition</title>
+    <style>
+        .box {
+            margin: 100px;
+            width: 400px;
+            height: 400px;
+            /* background-color: chocolate; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        a {
+            margin: 20px;
+            padding: 20px;
+            background: lightgrey;
+            color: grey;
+        }
+
+        a:hover {
+            background: yellow;
+            color: red;
+        }
+
+        /* 使用transition，可以获得更柔和平滑的交互体验 */
+        a.with-transition {
+            transition: 2s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <a>没有动画</a>
+        <a class="with-transition">有动画</a>
+    </div>
+</body>
+
+</html>

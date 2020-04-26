@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation</title>
+    <link rel="stylesheet" href="animate.css">
+    <style>
+        #container {
+            margin-top: 100px;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            background-color: royalblue;
+            color: #fff;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+</body>
+<script src="./animate.js"></script>
+<script>
+    window.onload = function () {
+        var oDiv = document.getElementById("container");
+        oDiv.onmouseover = function () {
+            // animate(this,{width:'200px', height:'200px',opacity: 1}, 3000, function(){
+            //     console.log("执行完毕")
+            // });
+            
+            // 类似 jQuery animate方法
+            document.getElementById("container").animate([{
+                    transform: 'translateX(0px)'
+                },
+                {
+                    transform: 'translateX(300px)'
+                }
+            ], {
+                duration: 3000,
+                iterations: Infinity
+            });
+        }
+    }
+    
+    // 滚动时元素动态出现: https://github.com/lujingtao/elements-appear-dynamically-when-scroll-page
+</script>
+
+</html>

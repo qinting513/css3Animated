@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation</title>
+    <style>
+        .box {
+            /* background-color: green; */
+            /* border-bottom: 2px solid #000000; */
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+
+        .ball {
+            width: 100px;
+            height: 100px;
+
+            position: absolute;
+            background-color: red;
+            /* direction: normal reverse alternate alternate-reverse */
+            /* animation: changeWidth 2s ease-out 3s normal; */
+
+            /* fill-mode */
+            animation: changeWidth 2s ease-out 2s both;
+
+            /* 简单的理解为：
+            forwards就是动画样式作用区间向时间轴正方向（->）延伸，
+            backwards则向负方向（<-）延伸，
+            both就是双向（<- ->）延伸。从而影响到相邻区间的默认样式 
+            */
+        }
+
+        @keyframes changeWidth {
+            0% {
+                width: 100px;
+                background-color: green;
+            }
+
+            100% {
+                width: 200px;
+                background-color: blue;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="ball">
+        </div>
+    </div>
+</body>
+
+</html>

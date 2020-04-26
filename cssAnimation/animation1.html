@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation</title>
+    <style>
+        /* 
+        1. @keyframes
+            关键帧，用来规定动画中间的每一个步骤
+            @keyframes animationname {keyframes-selector {css-styles;}}
+            animationname: 必需。定义动画的名称。
+            keyframes-selector: 必需(可以有多个值)。百分比格式的时间坐标。合法的值：0-100% | from（与 0% 相同）| to（与 100% 相同）。
+            css-styles: 必需。一个或多个合法的 CSS规则（样式定义）
+
+        animation: name duration timing-function delay iteration-count direction fill-mode;            
+        2. name
+        动画名称（animation-name）至少出现两次;
+        和CSS class名称一样，animation 的名称只能包含：
+            1>字母 (a-z)
+            2>数字 (0-9)
+            3>下划线 underscore (_)
+            4>中划线 dash (-)
+            5>不能以数字或者两个中划线开始。
+        3.duration 动画持续时间
+        4.timing-function 与transition的timing-funtion一样 缺省值是 ease
+        5.delay 可以设置为 秒 1s 或 毫秒, 默认值为 0s，即不会有延迟。
+        6.iteration-count 
+            默认情况下，动画只运行一次（即默认值为 1），你可以设置3种类型的数值：
+                整数 如 2 或 3
+                小数 如 0.5，意味着只运行动画的一半
+                the 关键词 infinite 无限重复
+        7.direction 默认是normal    ==> animation2.html
+            normal: 正常方向，从 0% 开始，到 100% 结束，然后再从 0% 开始。
+            reverse: 相反方向，从 100% 开始，到 0% 结束，然后再从 100% 开始。
+            alternate: 交替方向，从 0% 开始，到 100% ，再到 0%。
+            alternate-reverse: 反向交替方向，从 100% 开始，到 0%，再到 100%。
+        8.fill-mode
+            fill-mode 用来确定动画开始之前和结束之后的状态。这样才是一个完整的动画过程。
+            通过 keyframes 我们定义了动画不同阶段下的CSS规则，这有可能会和已经定义的样式冲突。
+            填充模式属性允许我们告诉浏览器是否动画样式在动画之外也生效
+            
+            比如一个按钮 默认是红色
+            在动画开始时被设置为绿色
+            在动画结束时被设置为蓝色
+            None: 动画样式不会影响默认样式
+            Forwards: 动画结束时的样式被保持到动画结束后
+            Backwards: 动画开始时的样式会被预置到动画开始前（即默认样式会被覆盖）
+            Both: 动画开始时的样式会被预置到动画开始前，动画结束时的样式被保持到动画结束后
+    
+     */
+        .box {
+            margin: 40px;
+            border: 1px solid #000000;
+            width: 240px;
+            height: 240px;
+            position: relative;
+        }
+
+        .ball {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            position: absolute;
+
+            background-color: orange;
+            animation: around 8s linear infinite;
+
+        }
+
+        /* 1.注意around名字要一样 */
+        /* 2.起点 0% 和终点 100% 设置成一样的状态，
+            并且是 infinite 播放，这样可以确保动画的两次播放之间的无缝衔接 */
+        /* 3.如果若干时间节点具有相同的样式，可以合并在一起简写  
+             0%, 100%  { left: 0; top: 0;} */
+        /* @keyframes around {
+            0% {
+                left: 0;
+                top: 0;
+            }
+
+            25% {
+                left: 200px;
+                top: 0;
+            }
+
+            50% {
+                left: 200px;
+                top: 200px;
+            }
+
+            75% {
+                left: 0;
+                top: 200px;
+            }
+
+            100% {
+                left: 0;
+                top: 0;
+            }
+        } */
+
+        @keyframes around {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(200px, 0);
+            }
+
+            50% {
+                transform: translate(200px, 200px);
+            }
+
+            75% {
+                transform: translate(0, 200px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="ball">Hello</div>
+    </div>
+
+    
+</body>
+
+</html>

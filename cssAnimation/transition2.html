@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transition</title>
+    <style>
+        .box {
+            margin: 100px;
+            width: 400px;
+            height: 400px;
+            /* background-color: chocolate; */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        a {
+            background: lightgrey;
+            color: grey;
+        }
+
+        a:hover {
+            background: yellow;
+            border: 5px solid blue;
+            color: green;
+        }
+
+        a.with-background-transition {
+            transition-duration: 3s;
+            transition-property: background;
+        }
+
+        a.with-all-transition {
+            transition-duration: 3s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <a href="">Without transition</a>
+        <a href="" class="with-background-transition">with-background-transition</a>
+        <a href="" class="with-all-transition">with-all-transition</a>
+    </div>
+</body>
+
+</html>
